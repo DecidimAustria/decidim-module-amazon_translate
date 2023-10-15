@@ -15,10 +15,11 @@ gem "decidim-amazon_translate"
 Update config/initializers/decidim.rb to contain:
 
 ```ruby
-config.machine_translation_service = "Decidim::AmazonTranslate::AwsTranslator"
+config.machine_translation_service = "Decidim::AmazonTranslate::AmazonTranslator"
+config.machine_translation_delay = 0.seconds
 ```
 
-Make sure you have AWS credentials in your environment variables or rails credentials:
+Make sure you have AWS credentials in your environment variables:
 
 Environment variables example:
 
@@ -26,15 +27,6 @@ Environment variables example:
 AWS_TRANSLATE_REGION="eu-central-1"
 AWS_ACCESS_KEY_ID="XXXXXX"
 AWS_SECRET_ACCESS_KEY="XXXXXX"
-```
-
-Rails credentials example:
-
-```yaml
-translator:
-  aws_region: "eu-central-1"
-  aws_access_key_id: "XXXXXX"
-  aws_secret_access_key: "XXXXXX"
 ```
 
 And then enable machine translations in the admin webinterface settings.

@@ -33,7 +33,7 @@ module Decidim
           @resource,
           @field_name,
           @target_locale,
-          translation.translated_text
+          translation
         )
       end
     
@@ -54,7 +54,7 @@ module Decidim
     
       def amazon_translate(text)
         aws_client = Aws::Translate::Client.new(region: @region, credentials: @credentials)
-        aws_client.translate_text(
+        result = aws_client.translate_text(
           text: text, # required
           # terminology_names: ["ResourceName"],
           source_language_code: @source_locale, # required
@@ -64,6 +64,7 @@ module Decidim
             profanity: "MASK", # accepts MASK
           }
         )
+        result.translated_text
       end
     end    
   end

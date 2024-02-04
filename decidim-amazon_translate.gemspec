@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{lib}/**/*", "LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", '>= 0.27.0', '< 0.28'
+  s.add_dependency "decidim-core", '>= 0.27.0', '< 0.29'
   s.add_dependency "aws-sdk-translate", "~> 1.59"
 end

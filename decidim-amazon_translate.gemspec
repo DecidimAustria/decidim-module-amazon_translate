@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::AmazonTranslate.version
   s.authors = ["Alexander Rusa"]
   s.email = ["alex@rusa.at"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-only"
   s.homepage = "https://github.com/DecidimAustria/decidim-module-amazon_translate"
   s.required_ruby_version = ">= 3.0"
 

@@ -25,7 +25,6 @@ module Decidim
     
         # remove base64 encoded images if they exist
         @text.gsub!(%r{<img src=\"data:image/png;base64,.*>}, '')
-        return if @text.bytesize > 10_000
     
         translation = segmented_translate
     
@@ -53,6 +52,10 @@ module Decidim
       end
     
       def amazon_translate(text)
+        # Amazon has a limit of 10000 bytes per input
+        # https://docs.aws.amazon.com/translate/latest/dg/what-is-limits.html
+        return text if text.bytesize > 10_000
+
         aws_client = Aws::Translate::Client.new(region: @region, credentials: @credentials)
         result = aws_client.translate_text(
           text: text, # required

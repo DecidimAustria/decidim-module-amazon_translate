@@ -50,13 +50,17 @@ module Decidim
         end
         html.to_s
       end
+
+      def aws_client
+        Aws::Translate::Client.new(region: @region, credentials: @credentials)
+      end
     
       def amazon_translate(text)
         # Amazon has a limit of 10000 bytes per input
         # https://docs.aws.amazon.com/translate/latest/dg/what-is-limits.html
+        return text if text.blank?
         return text if text.bytesize > 10_000
 
-        aws_client = Aws::Translate::Client.new(region: @region, credentials: @credentials)
         result = aws_client.translate_text(
           text: text, # required
           # terminology_names: ["ResourceName"],

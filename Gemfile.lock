@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    decidim-amazon_translate (0.1.0)
+    decidim-amazon_translate (0.3.0)
       aws-sdk-translate (~> 1.59)
       decidim-core (>= 0.27.0, < 0.29)
 
@@ -299,6 +299,8 @@ GEM
     net-smtp (0.4.0.1)
       net-protocol
     nio4r (2.7.0)
+    nokogiri (1.16.2-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.16.2-x86_64-linux)
       racc (~> 1.4)
     oauth (1.1.0)
@@ -479,6 +481,7 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
+  aarch64-linux
   x86_64-linux
 
 DEPENDENCIES
@@ -489,7 +492,7 @@ DEPENDENCIES
   rspec
 
 RUBY VERSION
-   ruby 3.2.2p53
+   ruby 3.1.7p261
 
 BUNDLED WITH
    2.4.20
